@@ -1,6 +1,7 @@
 const { TwitterApi } = require('twitter-api-v2');
 const schedule = require('node-schedule');
 const axios = require('axios');
+require('dotenv').config();
 
 // Twitter API credentials for the first account
 const client1 = new TwitterApi({
@@ -243,5 +244,3 @@ async function startBot() {
 }
 
 startBot();
-
-
