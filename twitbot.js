@@ -1,6 +1,7 @@
 const { TwitterApi } = require('twitter-api-v2');
 const schedule = require('node-schedule');
 const axios = require('axios');
+const port = process.env.PORT || 4000;
 require('dotenv').config();
 
 // Twitter API credentials for the first account
