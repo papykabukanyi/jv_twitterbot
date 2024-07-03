@@ -113,8 +113,23 @@ function formatTweetText(article) {
   const titleWords = article.title.split(' ');
   const firstTwoHashtags = `#${formatAsHashtag(titleWords.slice(0, 2).join(' '))}`;
 
+  // Add specific hashtags for mentioned celebrities
+  let celebrityHashtags = '';
+  if (article.title.includes('Taylor Swift') || (article.description && article.description.includes('Taylor Swift'))) {
+    celebrityHashtags += ' #taylorswift';
+  }
+  if (article.title.includes('Jennifer Lopez') || (article.description && article.description.includes('Jennifer Lopez'))) {
+    celebrityHashtags += ' #jlo #jenniferlopez';
+  }
+  if (article.title.includes('Ben Affleck') || (article.description && article.description.includes('Ben Affleck'))) {
+    celebrityHashtags += ' #benaffleck';
+  }
+  if (article.title.includes('Kim Kardashian') || (article.description && article.description.includes('Kim Kardashian'))) {
+    celebrityHashtags += ' #kimkardashian';
+  }
+
   // Construct the tweet text with two-line space before "READ HERE"
-  const status = `${firstTwoHashtags} ${titleWords.slice(2).join(' ')}\n#${hashtag} ${outletHashtag}\n\nREAD HERE: ${article.link} cashapp:$KBKNY`;
+  const status = `${firstTwoHashtags} ${titleWords.slice(2).join(' ')}\n#${hashtag} ${outletHashtag}${celebrityHashtags}\n\nREAD HERE: ${article.link} cashapp:$KBKNY`;
   return status;
 }
 
